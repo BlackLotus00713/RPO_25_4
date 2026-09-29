@@ -24,7 +24,7 @@ int main()
 		std::cout << "\n";
 	}
 
-
+	std::cout << "Word";
 	
 
 	return 0;
