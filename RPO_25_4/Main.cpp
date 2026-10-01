@@ -1,31 +1,87 @@
 #include <iostream> 
 #include <Windows.h>
 
+/*
+
+тип_возврата Имя_Функции (аргументы_функции, ...)
+{
+	тело_функции
+}
+
+*/
+
+
+void PrintHello()
+{
+	int a = 0; 
+	std::cout << "Hello\n";
+}
+
+void PrintNum(int number)
+{
+	number += 100;
+
+	if (number > 0)
+	{
+		return;
+	}
+	
+
+	std::cout << number << "\n";
+}
+
+double Sum(double one, double two = 10)
+{
+	return one + two;
+}
+double Substruct(double one, double two)
+{
+	return one - two;
+}
+
+double MyPow(double num, double n)
+{
+	double result = num;
+	for (int i = 1; i < n; i++)
+	{
+		result = result * num;
+	}
+	return result;
+}
+
+
+void PrintArr(int name[], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		std::cout << name[i] << " ";
+	}
+}
+
+// Сева рассказывает про iomanip
+
+void SetArr(int name[], int length)
+{
+	for (int i = 0; i < length; i++)
+	{
+		name[i] = rand() % 6;
+	}
+}
+
 
 int main()
 {   
 	SetConsoleCP(CP_UTF8);
 	SetConsoleOutputCP(CP_UTF8);//   1251
 	srand(time(NULL));
-
-	// тип_данных имя_массива[кол-во_ячеек];
-
-	const int row = 3, col = 4;
-
-	int arr[row][col];
-
-	for (int i = 0; i < row; i++)
-	{
-		for (int j = 0; j < col; j++)
-		{
-			arr[i][j] = rand() % 10;
-			std::cout << arr[i][j] << " ";
-		}
-		std::cout << "\n";
-	}
-
-	std::cout << "Word";
+	const int size = 5;
+	int arr[size]{}; 
+	/*SetArr(arr, size);
+	PrintArr(arr, size);*/
 	
+	std::cout << Sum(5,56);
+	
+
 
 	return 0;
 }
@@ -140,6 +196,105 @@ int main()
 
 */
 
+/*
+
+const int row = 3, col = 4;
+
+int arr[row][col];
+int sum = 0, totalSum = 0;  // new
+
+for (int i = 0; i < row; i++)
+{
+	sum = 0;// new
+	for (int j = 0; j < col; j++)
+	{
+		arr[i][j] = rand() % 10;
+		sum += arr[i][j]; // new
+		std::cout << arr[i][j] << "\t";
+	}
+	std::cout << "|\t" << sum << "\n"; // new
+}
+
+for (int i = 0; i < col; i++)
+{
+	sum = 0;
+	for (int j = 0; j < row; j++)
+	{
+		sum += arr[j][i];
+	}
+	std::cout << sum << "\t";
+	totalSum += sum;
+}
+std::cout << "\t|\t" << totalSum << "\n\n";
+*/
+
+/*
+const int size = 10;
+int arr1[size]{}, temp[size]{};
+int count = 0;
+
+for (int i = 0; i < size; i++)
+{
+	arr1[i] = rand() % 6;
+	if (arr1[i] == 0)
+	{
+		arr1[i] = -1;
+	}
+	std::cout << arr1[i] << " ";
+}
+
+std::cout << "\n\n";
+
+for (int i = 0, j = 0; i < size; i++, j++)
+{
+	if (arr1[i] == -1)
+	{
+		i++; count++;
+	}
+	temp[j] = arr1[i];
+}
+for (int i = size - 1, j = 0; j < count; i--, j++)
+{
+	temp[i] = -1;
+}
+for (int i = 0; i < size; i++)
+{
+	arr1[i] = temp[i];
+	std::cout << arr1[i] << ' ';
+}*/
+
+/*const int size = 10;
+int arr1[size]{};
+int count = 0;
+
+for (int i = 0; i < size; i++)
+{
+	arr1[i] = rand() % 6;
+	std::cout << arr1[i] << " ";
+}
+
+std::cout << "\n\n";
+
+for (int i = 0; i < size; i++)
+{
+	if (arr1[i] != 0)
+	{
+		arr1[count] = arr1[i];
+		count++;
+	}
+
+}
+std::cout << "\n\n";
+for (int i = count; i < size; i++)
+{
+	arr1[i] = -1;
+}
+for (int i = 0; i < size; i++)
+{
+	std::cout << arr1[i] << " ";
+}
+
+std::cout << "\n\n\n";*/
 
 /*
 int choose = 0, randomNumber = 0, hp = 0, number = 0;
